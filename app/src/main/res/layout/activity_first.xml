@@ -7,32 +7,37 @@
     tools:context="com.a7476.eventia.eventia.FirstActivity">
 
 
-    <LinearLayout
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-        android:id="@+id/linearLayout"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+            android:id="@+id/linearLayout"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:weightSum="1">
 
-        <EditText
-            android:id="@+id/editText2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="50dp"
-            android:ems="10"
-            android:hint="Name"
-            android:textSize="30sp"
-            android:inputType="textPersonName"
-             />
+            <EditText
+
+                android:id="@+id/editText2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="50dp"
+                android:ems="10"
+                android:hint="Name"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:inputType="textPersonName"
+                 />
 
             <Spinner
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:entries="@array/city"
-                android:scrollbarSize="30dp"
                 android:layout_marginBottom="50dp"
-                >
+                android:layout_weight="0.25"
+                android:entries="@array/city"
+                android:textAlignment="center"
+                android:scrollbarSize="50dp">
+
             </Spinner>
 
             <Button
@@ -48,3 +53,4 @@
         </LinearLayout>
 
 </RelativeLayout>
+
