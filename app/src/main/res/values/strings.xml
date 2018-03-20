@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Eventia</string>
+
+    <!-- Spinner Item-->
+    <string-array name= "city">
+        <item name="Indore">Indore</item>
+        <item name="Ujjain">Ujjain</item>
+    </string-array>
+</resources>
