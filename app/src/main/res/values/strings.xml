@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Eventia</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
     <!-- Spinner Item-->
     <string-array name="city">
