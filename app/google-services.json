@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "670935791780",
+    "firebase_url": "https://eventia-7476.firebaseio.com",
+    "project_id": "eventia-7476",
+    "storage_bucket": "eventia-7476.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:670935791780:android:22b86ec9d36f69c2",
+        "android_client_info": {
+          "package_name": "com.a7476.eventia.eventia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "670935791780-80p61713g896cdk76h782c8psini9hje.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQiQAP2fcT7gMt98F_9dcdDCR271IcOOc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
