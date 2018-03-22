@@ -5,6 +5,8 @@
         android:icon="@mipmap/ic_event_black_24dp"
         android:title="Upcoming Events"/>
 
+
+
     <item android:id="@+id/nav_account"
         android:icon="@mipmap/ic_account_circle_black_24dp"
         android:title="My Account"/>
@@ -16,4 +18,25 @@
     <item android:id="@+id/logout"
         android:icon="@mipmap/ic_exit_to_app_black_24dp"
         android:title="Logout"/>
+
+    <item android:id="@+id/Categories"
+
+        android:title="Categories"
+        android:icon="@mipmap/ic_list_black_24dp"
+        >
+        <menu>
+            <item android:id="@+id/Tech"
+                android:icon="@mipmap/ic_developer_mode_black_24dp"
+                android:title="Educational and Tech"/>
+            <item android:id="@+id/Sports"
+                android:icon="@mipmap/ic_fitness_center_black_24dp"
+                android:title="Sports and Fitness"/>
+            <item android:id="@+id/Travel"
+                android:icon="@mipmap/ic_train_black_24dp"
+                android:title="Travel and Adventure"/>
+            <item android:id="@+id/Hobbies"
+                android:icon="@mipmap/ic_party_mode_black_24dp"
+                android:title="Hobbies and Crafts"/>
+        </menu>
+    </item>
 </menu>
