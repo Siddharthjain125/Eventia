@@ -17,7 +17,6 @@
     </string-array>
 
 
-
     <string name="action_sign_in_short">Register</string>
     <string name="email">Email</string>
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
@@ -52,5 +51,8 @@
     <string name="activity_time">Time(hh:mm)</string>
     <string name="activity_description">Description</string>
     <string name="create_activity_btn">Create</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
