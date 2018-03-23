@@ -17,14 +17,22 @@ public class EventFragment extends Fragment {
 
     }
 
-    String eventId , name , category , date , time , description ;
+    String eventId , name= "Tanishq" , category , date , time , description ;
 
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+      //  LayoutInflater lf= getActivity().getLayoutInflater();
+        //View view =  lf.inflate(R.layout.fragment_event, container, false);
+
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_event, container, false);
+        View view = inflater.inflate(R.layout.fragment_event, container, false);
+        TextView text = (TextView) view.findViewById(R.id.textView);
+        text.setText(name);
+        return view;
+
     }
 }

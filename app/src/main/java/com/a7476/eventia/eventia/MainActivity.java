@@ -10,6 +10,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity{
                         break;
                     }
 
+
                     case R.id.logout : {
                         auth.signOut();
                         startActivity(new Intent(MainActivity.this, LoginActivity.class));
@@ -75,6 +77,7 @@ public class MainActivity extends AppCompatActivity{
         addFragment();
 
     }
+
 /*
 
     @Override
@@ -87,6 +90,7 @@ public class MainActivity extends AppCompatActivity{
                 for(DataSnapshot eventSnapshot : dataSnapshot.getChildren()){
                     Event event = eventSnapshot.getValue(Event.class);
                 }
+
             }
 
             @Override
@@ -97,6 +101,7 @@ public class MainActivity extends AppCompatActivity{
 
     }
 */
+
 
     // Fragment
     public void addFragment(){
@@ -112,31 +117,4 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle navigation view item clicks here.
-//        switch (item.getItemId()) {
-//
-//            case R.id.nav_create: {
-//                //do somthing
-//                Toast.makeText(this,"Create Pressed",Toast.LENGTH_LONG);
-//                break;
-//            }
-//
-//        }
-//        //close navigation drawer
-//        mDrawerLayout.closeDrawer(GravityCompat.START);
-//        return true;
-//
-//    }
-//
-//    private void setNavigationViewListener() {
-//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-//        navigationView.setNavigationItemSelectedListener(this);
-//    }
-//
-//    @Override
-//    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//        return false;
-//    }
 }
