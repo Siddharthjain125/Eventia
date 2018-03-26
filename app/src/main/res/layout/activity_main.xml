@@ -12,12 +12,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/print"/>
+
+        <LinearLayout
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:paddingLeft="50dp"
             android:paddingRight="50dp"
             android:id="@+id/fragmentContainer">
+        </LinearLayout>
         </LinearLayout>
     </ScrollView>
     
@@ -29,4 +39,6 @@
         android:layout_gravity="start">
 
     </android.support.design.widget.NavigationView>
+
+    <include layout="@layout/content_main"/>
 </android.support.v4.widget.DrawerLayout>

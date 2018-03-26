@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "670935791780-2r8jr4l8mj5oipu05bfoq5ub5vjk1hvi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.a7476.eventia.eventia",
+            "certificate_hash": "e6da512e9230be2337f3974700699f5accb0710a"
+          }
+        },
+        {
           "client_id": "670935791780-80p61713g896cdk76h782c8psini9hje.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "670935791780-80p61713g896cdk76h782c8psini9hje.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
