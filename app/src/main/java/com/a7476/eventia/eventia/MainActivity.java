@@ -41,12 +41,12 @@ public class MainActivity extends AppCompatActivity{
 
         mDrawerLayout.addDrawerListener(mToggle);
         mToggle.syncState();
-
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //Navigation Drawer
 
         navigationView = (NavigationView)findViewById(R.id.nav_view);
+
+
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
             @Override
             public boolean onNavigationItemSelected( MenuItem item) {
@@ -73,10 +73,22 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+
         //Fragment
         addFragment();
 
     }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (mToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+
+    }
+
+
+
 
 /*
 
