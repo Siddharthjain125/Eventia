@@ -99,7 +99,7 @@ public class MainActivity extends AppCompatActivity{
 
 
 
-        setContentView(R.layout.activity_main);
+   //     setContentView(R.layout.activity_main);
 
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
@@ -134,8 +134,13 @@ public class MainActivity extends AppCompatActivity{
 
             }
         });
-
-
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (mToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
 
     }
 

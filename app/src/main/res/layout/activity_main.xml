@@ -6,31 +6,10 @@
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
     tools:context="com.a7476.eventia.eventia.MainActivity"
-
     >
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/print"/>
 
-        <LinearLayout
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:paddingLeft="50dp"
-            android:paddingRight="50dp"
-            android:id="@+id/fragmentContainer">
-        </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-    
+    <include layout="@layout/content_main"/>
+
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -40,5 +19,4 @@
 
     </android.support.design.widget.NavigationView>
 
-    <include layout="@layout/content_main"/>
 </android.support.v4.widget.DrawerLayout>
