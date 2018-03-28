@@ -15,6 +15,7 @@ public class Event {
     }
 
     public Event(String eventId, String name, String category, String date, String time, String description) {
+        this.eventId = eventId;
         this.name = name;
         this.category = category;
         this.date = date;
