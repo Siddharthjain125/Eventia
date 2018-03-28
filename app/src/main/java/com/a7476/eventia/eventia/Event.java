@@ -1,10 +1,14 @@
 package com.a7476.eventia.eventia;
 
+import android.os.Parcelable;
+
+import java.io.Serializable;
+
 /**
  * Created by HP on 3/22/2018.
  */
 
-public class Event {
+public class Event implements Serializable {
     private String name,eventId;
     private String category;
     private String date , time, description;

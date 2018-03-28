@@ -22,7 +22,8 @@
         <activity android:name=".FirstActivity" />
         <activity android:name=".SignupActivity" />
         <activity android:name=".ResetPasswordActivity" />
-        <activity android:name=".CreateEventActivity"></activity>
+        <activity android:name=".CreateEventActivity" />
+        <activity android:name=".EventDetails"></activity>
     </application>
 
 </manifest>

@@ -119,8 +119,14 @@ public class MainActivity extends AppCompatActivity{
         recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
             @Override
             public void onClick(View view, int position) {
-                Event movie = eventList.get(position);
-                Toast.makeText(getApplicationContext(), movie.getEventId() + " is selected!", Toast.LENGTH_SHORT).show();
+                Event event = eventList.get(position);
+                Toast.makeText(getApplicationContext(), event.getName() + " is selected!", Toast.LENGTH_SHORT).show();
+
+                // intent
+
+                Intent intent = new Intent(MainActivity.this, EventDetails.class);
+                intent.putExtra("eventData",event);
+                startActivity(intent);
             }
 
             @Override
