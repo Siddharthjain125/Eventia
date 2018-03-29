@@ -4,49 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.a7476.eventia.eventia.FirstActivity">
+    tools:context="com.a7476.eventia.eventia.CreateEventActivity">
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/linearLayout"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:weightSum="1">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/colorPrimary"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin">
 
-            <EditText
 
-                android:id="@+id/editText2"
+
+    <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="50dp"
-                android:ems="10"
-                android:hint="Name"
-                android:textSize="20sp"
-                android:textAlignment="center"
-                android:inputType="textPersonName"
-                 />
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="50dp"
-                android:layout_weight="0.25"
-                android:entries="@array/city"
-                android:textAlignment="center"
-                android:scrollbarSize="50dp">
+                android:layout_height="wrap_content">
 
-            </Spinner>
+                <EditText
+                    android:id="@+id/your_city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="Insert Your City"
+                    android:inputType="text"
+                    android:textColor="@android:color/white"
+                    android:textColorHint="@android:color/white" />
+            </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/insert_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="GO"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:textColor="@color/colorPrimaryLight"
+                android:textColor="@color/colorPrimaryDark"
                 android:background="@drawable/button_complete"
                 />
         </LinearLayout>

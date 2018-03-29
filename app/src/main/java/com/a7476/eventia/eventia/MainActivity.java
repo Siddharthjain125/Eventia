@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,8 +37,16 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity{
 
     private List<Event> eventList = new ArrayList<>();
+    private List<Event> techList = new ArrayList<>();
+    private List<Event> sportList = new ArrayList<>();
+    private List<Event> travelList = new ArrayList<>();
+    private List<Event> hobbyList = new ArrayList<>();
+    private String sort;
+    private String your_city;
+
+
     private RecyclerView recyclerView;
-    private EventsAdapter mAdapter;
+    private EventsAdapter mAdapter, techAdapter , sportAdapter , travelAdapter , hobbyAdapter;
 
 
 
@@ -57,6 +66,10 @@ public class MainActivity extends AppCompatActivity{
 
         auth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_main);
+
+        your_city = (String)getIntent().getSerializableExtra("city");
+
+
         // Drawer Layout
         mDrawerLayout=(DrawerLayout) findViewById(R.id.drawerLayout);
         mToggle= new ActionBarDrawerToggle(this,mDrawerLayout,R.string.open,R.string.close);
@@ -81,6 +94,26 @@ public class MainActivity extends AppCompatActivity{
                         break;
                     }
 
+                    case R.id.Tech:{
+                        recyclerView.setAdapter(techAdapter);
+
+                    }
+                        break;
+                    case R.id.Sports:{
+                        recyclerView.setAdapter(sportAdapter);
+
+                    }
+                    break;
+                    case R.id.Travel:{
+                        recyclerView.setAdapter(travelAdapter);
+
+                    }
+                    break;
+                    case R.id.Hobbies:{
+
+                        recyclerView.setAdapter(hobbyAdapter);
+                    }
+                    break;
 
                     case R.id.logout : {
                         auth.signOut();
@@ -107,6 +140,15 @@ public class MainActivity extends AppCompatActivity{
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         mAdapter = new EventsAdapter(eventList);
+        techAdapter = new EventsAdapter(techList);
+        sportAdapter = new EventsAdapter(sportList);
+        hobbyAdapter = new EventsAdapter(hobbyList);
+        travelAdapter = new EventsAdapter(travelList);
+
+
+
+
+
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -147,9 +189,35 @@ public class MainActivity extends AppCompatActivity{
              for (DataSnapshot ds : dataSnapshot.getChildren()){
                  Event event = ds.getValue(Event.class);
                  eventList.add(event);
+                 sort = event.getCategory();
+
+                 switch (sort){
+                     case "Education and Tech" : {
+                        techList.add(event);
+                     }
+                     break;
+                     case "Sports and Fitness" : {
+                         sportList.add(event);
+                     }
+                     break;
+                     case "Travel and Adventure" : {
+                         travelList.add(event);
+                     }
+                     break;
+                     case "Hobbies and Crafts" : {
+                        hobbyList.add(event);
+                     }
+
+                 }
+
 
              }
                 mAdapter.notifyDataSetChanged();
+                techAdapter.notifyDataSetChanged();
+                hobbyAdapter.notifyDataSetChanged();
+                sportAdapter.notifyDataSetChanged();
+                travelAdapter.notifyDataSetChanged();
+
             }
 
             @Override
@@ -167,6 +235,8 @@ public class MainActivity extends AppCompatActivity{
         return super.onOptionsItemSelected(item);
 
     }
+
+
 
 
 
