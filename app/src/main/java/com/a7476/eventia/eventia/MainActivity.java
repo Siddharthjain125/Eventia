@@ -1,6 +1,8 @@
 package com.a7476.eventia.eventia;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.nfc.Tag;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -73,7 +75,9 @@ public class MainActivity extends AppCompatActivity{
 
         setContentView(R.layout.activity_main);
 
-        your_city = (String)getIntent().getSerializableExtra("city");
+        SharedPreferences prefs = getSharedPreferences("myprefs", Context.MODE_PRIVATE);
+        your_city = prefs.getString("your_city",null);
+        Toast.makeText(this,your_city,Toast.LENGTH_LONG).show();
 
 
         // Drawer Layout

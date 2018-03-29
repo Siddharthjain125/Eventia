@@ -1,6 +1,8 @@
 package com.a7476.eventia.eventia;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputFilter;
@@ -13,6 +15,8 @@ public class FirstActivity extends AppCompatActivity {
 
     private EditText your_city;
     private Button insert_city;
+    SharedPreferences sharedpreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,9 +33,15 @@ public class FirstActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 String city = your_city.getText().toString().trim();
+
+                sharedpreferences = getSharedPreferences("myprefs", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedpreferences.edit();
+
+                editor.putString("your_city", city).commit();
+
                 Intent intent = new Intent(FirstActivity.this, MainActivity.class);
-                intent.putExtra("city",city);
                 startActivity(intent);
+                finish();
 
 
 
