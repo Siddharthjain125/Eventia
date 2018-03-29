@@ -1,16 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="com.a7476.eventia.eventia.EventDetails">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/name"
-        android:layout_marginTop="50dp"
-        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/imageDetails"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:adjustViewBounds="true"
+            android:cropToPadding="false"
+            android:scaleType="centerCrop"
+            android:src="@drawable/details"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/name"
+            android:layout_marginTop="170dp"
+            android:textSize="@dimen/Large_Text"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category :   "
+            android:layout_marginTop="220dp"
+            android:textSize="@dimen/Small_Text"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/CatDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="220dp"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/Medium_Text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date  :   "
+            android:layout_marginTop="260dp"
+            android:layout_alignParentLeft="true"
+            android:textSize="@dimen/Small_Text"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/DateDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="260dp"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/Medium_Text"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time  :   "
+            android:textSize="@dimen/Small_Text"
+            android:layout_marginTop="300dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/TimeDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/Medium_Text"/>
+
+
+        <TextView
+            android:id="@+id/venueText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Venue  :   "
+            android:textSize="@dimen/Small_Text"
+            android:layout_marginTop="340dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:id="@+id/VenueDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="340dp"
+            android:layout_toEndOf="@+id/venueText"
+
+            android:textAlignment="textEnd"
+            android:textColor="@color/white"
+            android:textSize="@dimen/Medium_Text"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/CityDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="380dp"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="@dimen/Medium_Text"/>
+        <!--       android:layout_toEndOf="@+id/VenueDetails"
+                    android:paddingTop="20dp" -->
+
+
+        <TextView
+            android:id="@+id/Desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="420dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_alignParentRight="true"
+            android:textColor="@color/white"
+            android:textStyle="italic"
+            android:textSize="16dp"
+            />
+<!--             android:layout_toEndOf="@+id/CityDetails"
+            android:paddingTop="40dp" -->
+
+
+    </RelativeLayout>
+</ScrollView>
