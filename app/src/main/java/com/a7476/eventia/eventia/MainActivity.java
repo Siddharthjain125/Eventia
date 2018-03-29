@@ -25,6 +25,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -65,6 +66,11 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
 
         auth = FirebaseAuth.getInstance();
+        //retrieve user email
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user.getEmail();
+        Toast.makeText(this,"current user is "+email,Toast.LENGTH_LONG).show();
+
         setContentView(R.layout.activity_main);
 
         your_city = (String)getIntent().getSerializableExtra("city");
@@ -188,7 +194,7 @@ public class MainActivity extends AppCompatActivity{
             public void onDataChange(DataSnapshot dataSnapshot) {
              for (DataSnapshot ds : dataSnapshot.getChildren()){
                  Event event = ds.getValue(Event.class);
-                 if (event.getCity() == your_city) {
+                 if (event.getCity().equals(your_city)) {
                      eventList.add(event);
                      sort = event.getCategory();
 

@@ -32,7 +32,7 @@ public class FirstActivity extends AppCompatActivity {
                 Intent intent = new Intent(FirstActivity.this, MainActivity.class);
                 intent.putExtra("city",city);
                 startActivity(intent);
-                finish();
+
 
 
             }
