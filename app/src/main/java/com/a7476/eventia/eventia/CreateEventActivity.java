@@ -10,6 +10,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -23,6 +25,9 @@ public class CreateEventActivity extends AppCompatActivity {
     private EditText event_time  ;
     private EditText event_description;
     private Button create_btn ;
+
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String host = user.getEmail();
 
     DatabaseReference databaseEvent;
 
@@ -65,7 +70,7 @@ public class CreateEventActivity extends AppCompatActivity {
 
 
         String id = databaseEvent.push().getKey();
-        Event event = new Event(id,name,category,date,time,description,venue,city);
+        Event event = new Event(id,name,category,date,time,description,venue,city,host);
 
         databaseEvent.child(id).setValue(event);
         Toast.makeText(this,"Event Created",Toast.LENGTH_LONG).show();

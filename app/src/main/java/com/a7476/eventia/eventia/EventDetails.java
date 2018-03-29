@@ -6,14 +6,21 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class EventDetails extends AppCompatActivity {
 
     private TextView tw;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String email = user.getEmail();
 
         Event event = (Event) getIntent().getSerializableExtra("eventData");
         Toast.makeText(this,event.getName(),Toast.LENGTH_LONG).show();
