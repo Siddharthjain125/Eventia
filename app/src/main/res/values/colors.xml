@@ -2,11 +2,11 @@
 <resources>
 
     <color name="colorPrimaryLight">#99ff00</color>
-
+    <color name="colorStatusBar">#203638</color>
 
 
     <color name="colorPrimary">#00bcd4</color>
-    <color name="colorPrimaryDark">#203638</color>
+    <color name="colorPrimaryDark">#194549</color>
     <color name="colorAccent">#f2fe71</color>
 
     <color name="bg_login">#26ae90</color>

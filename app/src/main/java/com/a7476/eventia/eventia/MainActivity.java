@@ -152,9 +152,6 @@ public class MainActivity extends AppCompatActivity{
         travelAdapter = new EventsAdapter(travelList);
 
 
-
-
-
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
