@@ -6,5 +6,8 @@
         <dimen name="activity_vertical_margin">16dp</dimen>
         <dimen name="fab_margin">16dp</dimen>
         <dimen name="row_padding_vertical">10dp</dimen>
+        <dimen name="Large_Text">30sp</dimen>
+        <dimen name="Medium_Text">18sp</dimen>
+        <dimen name="Small_Text">12sp</dimen>
 
 </resources>
