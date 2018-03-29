@@ -188,26 +188,28 @@ public class MainActivity extends AppCompatActivity{
             public void onDataChange(DataSnapshot dataSnapshot) {
              for (DataSnapshot ds : dataSnapshot.getChildren()){
                  Event event = ds.getValue(Event.class);
-                 eventList.add(event);
-                 sort = event.getCategory();
+                 if (event.getCity() == your_city) {
+                     eventList.add(event);
+                     sort = event.getCategory();
 
-                 switch (sort){
-                     case "Education and Tech" : {
-                        techList.add(event);
-                     }
-                     break;
-                     case "Sports and Fitness" : {
-                         sportList.add(event);
-                     }
-                     break;
-                     case "Travel and Adventure" : {
-                         travelList.add(event);
-                     }
-                     break;
-                     case "Hobbies and Crafts" : {
-                        hobbyList.add(event);
-                     }
+                     switch (sort) {
+                         case "Education and Tech": {
+                             techList.add(event);
+                         }
+                         break;
+                         case "Sports and Fitness": {
+                             sportList.add(event);
+                         }
+                         break;
+                         case "Travel and Adventure": {
+                             travelList.add(event);
+                         }
+                         break;
+                         case "Hobbies and Crafts": {
+                             hobbyList.add(event);
+                         }
 
+                     }
                  }
 
 
