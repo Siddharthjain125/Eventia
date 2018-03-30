@@ -44,11 +44,13 @@ public class MainActivity extends AppCompatActivity{
     private List<Event> sportList = new ArrayList<>();
     private List<Event> travelList = new ArrayList<>();
     private List<Event> hobbyList = new ArrayList<>();
+    private List<Event> myList = new ArrayList<>();
+
     private String sort;
     private String your_city;
 
     private RecyclerView recyclerView;
-    private EventsAdapter mAdapter, techAdapter , sportAdapter , travelAdapter , hobbyAdapter;
+    private EventsAdapter mAdapter, techAdapter , sportAdapter , travelAdapter , hobbyAdapter,myAdapter;
 
 
     private DrawerLayout mDrawerLayout;
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity{
 
     NavigationView navigationView;
     private FirebaseAuth auth;
+    private String email;
 
 
     @Override
@@ -67,8 +70,8 @@ public class MainActivity extends AppCompatActivity{
         auth = FirebaseAuth.getInstance();
         //retrieve user email
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String email = user.getEmail();
-        Toast.makeText(this,"current user is "+email,Toast.LENGTH_LONG).show();
+        email = user.getEmail();
+   //     Toast.makeText(this,"current user is "+email,Toast.LENGTH_LONG).show();
 
         setContentView(R.layout.activity_main);
 
@@ -101,27 +104,36 @@ public class MainActivity extends AppCompatActivity{
                         break;
                     }
 
+                    case R.id.nav_account: {
+                        recyclerView.setAdapter(myAdapter);
+                        break;
+                    }
+
+                    case R.id.nav_City : {
+                        startActivity(new Intent(MainActivity.this, FirstActivity.class));
+                        break;
+                    }
+
                     case R.id.Tech:{
                         recyclerView.setAdapter(techAdapter);
-
-                    }
                         break;
+                    }
+
                     case R.id.Sports:{
                         recyclerView.setAdapter(sportAdapter);
-
+                        break;
                     }
-                    break;
+
                     case R.id.Travel:{
                         recyclerView.setAdapter(travelAdapter);
-
+                        break;
                     }
-                    break;
+
                     case R.id.Hobbies:{
 
                         recyclerView.setAdapter(hobbyAdapter);
+                        break;
                     }
-                    break;
-
                     case R.id.logout : {
                         auth.signOut();
                         startActivity(new Intent(MainActivity.this, LoginActivity.class));
@@ -151,6 +163,8 @@ public class MainActivity extends AppCompatActivity{
         sportAdapter = new EventsAdapter(sportList);
         hobbyAdapter = new EventsAdapter(hobbyList);
         travelAdapter = new EventsAdapter(travelList);
+        myAdapter = new EventsAdapter(myList);
+
 
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -188,6 +202,11 @@ public class MainActivity extends AppCompatActivity{
                  Event event = ds.getValue(Event.class);
                  if (event.getCity().equals(your_city)) {
                      eventList.add(event);
+                     if(event.getHost().equals(email)){
+                         myList.add(event);
+                     }
+
+
                      sort = event.getCategory();
 
                      switch (sort) {
@@ -217,6 +236,8 @@ public class MainActivity extends AppCompatActivity{
                 hobbyAdapter.notifyDataSetChanged();
                 sportAdapter.notifyDataSetChanged();
                 travelAdapter.notifyDataSetChanged();
+                myAdapter.notifyDataSetChanged();
+
 
             }
 

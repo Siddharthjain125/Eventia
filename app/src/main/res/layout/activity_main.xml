@@ -19,7 +19,6 @@
         android:layout_gravity="start"
         android:background="@color/colorAccent"
         app:itemTextColor="@android:color/black"
-        app:headerLayout="@layout/navigation_header"
         >
 
     </android.support.design.widget.NavigationView>
