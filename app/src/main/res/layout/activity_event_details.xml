@@ -82,7 +82,8 @@
             android:layout_marginTop="300dp"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="20dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:id="@+id/textView" />
 
         <TextView
             android:id="@+id/TimeDetails"
@@ -109,28 +110,28 @@
 
         <TextView
             android:id="@+id/VenueDetails"
-            android:layout_width="wrap_content"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="340dp"
-            android:layout_toEndOf="@+id/venueText"
-
-            android:textAlignment="textEnd"
+            android:gravity="right"
             android:textColor="@color/white"
             android:textSize="@dimen/Medium_Text"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_alignTop="@+id/venueText"
+            android:layout_alignParentEnd="true" />
 
         <TextView
             android:id="@+id/CityDetails"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="380dp"
             android:layout_marginRight="20dp"
-            android:layout_alignParentRight="true"
+            android:gravity="right"
 
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:textSize="@dimen/Medium_Text"/>
+            android:textSize="@dimen/Medium_Text"
+            android:layout_below="@+id/VenueDetails"
+            android:layout_alignStart="@+id/venueText" />
         <!--       android:layout_toEndOf="@+id/VenueDetails"
                     android:paddingTop="20dp" -->
 
@@ -139,14 +140,13 @@
             android:id="@+id/Desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="420dp"
             android:layout_marginRight="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_alignParentRight="true"
             android:textColor="@color/white"
             android:textStyle="italic"
             android:textSize="16dp"
-            />
+            android:layout_below="@+id/CityDetails"
+            android:layout_marginTop="40dp"
+            android:layout_alignStart="@+id/venueText" />
 <!--             android:layout_toEndOf="@+id/CityDetails"
             android:paddingTop="40dp" -->
 

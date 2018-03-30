@@ -47,17 +47,14 @@ public class MainActivity extends AppCompatActivity{
     private String sort;
     private String your_city;
 
-
     private RecyclerView recyclerView;
     private EventsAdapter mAdapter, techAdapter , sportAdapter , travelAdapter , hobbyAdapter;
-
 
 
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mToggle;
     private TextView print;
     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("events");
-
 
     NavigationView navigationView;
     private FirebaseAuth auth;
@@ -184,12 +181,6 @@ public class MainActivity extends AppCompatActivity{
             }
         }));
 
-
-
-
-
-
-
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -245,11 +236,6 @@ public class MainActivity extends AppCompatActivity{
 
     }
 
-
-
-
-
     //click listener
-
 
 }
