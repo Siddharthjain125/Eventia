@@ -42,12 +42,12 @@
                 android:layout_marginBottom="10dp"
                 android:entries="@array/category"
                 android:textColor="@android:color/white"
+                android:popupBackground="@color/colorAccent"
+
                  />
         </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+
 
             <EditText
                 android:id="@+id/date"
@@ -55,11 +55,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="@string/activity_date"
+                android:clickable="true"
+                android:editable="false"
+                android:focusable="false"
                 android:inputType="text"
-                android:textColor="@android:color/white"
-                android:textColorHint="@android:color/white" />
-        </android.support.design.widget.TextInputLayout>
+                android:textColor="@android:color/black"
 
+                />
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
