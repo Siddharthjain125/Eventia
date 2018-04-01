@@ -44,13 +44,13 @@ public class MainActivity extends AppCompatActivity{
     private List<Event> sportList = new ArrayList<>();
     private List<Event> travelList = new ArrayList<>();
     private List<Event> hobbyList = new ArrayList<>();
-    private List<Event> myList = new ArrayList<>();
+
 
     private String sort;
     private String your_city;
 
     private RecyclerView recyclerView;
-    private EventsAdapter mAdapter, techAdapter , sportAdapter , travelAdapter , hobbyAdapter,myAdapter;
+    private EventsAdapter mAdapter, techAdapter , sportAdapter , travelAdapter , hobbyAdapter;
 
 
     private DrawerLayout mDrawerLayout;
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity{
                     }
 
                     case R.id.nav_account: {
-                        recyclerView.setAdapter(myAdapter);
+                        startActivity(new Intent(MainActivity.this,MyEvent.class));
                         break;
                     }
 
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity{
         sportAdapter = new EventsAdapter(sportList);
         hobbyAdapter = new EventsAdapter(hobbyList);
         travelAdapter = new EventsAdapter(travelList);
-        myAdapter = new EventsAdapter(myList);
+
 
 
 
@@ -202,9 +202,8 @@ public class MainActivity extends AppCompatActivity{
                  Event event = ds.getValue(Event.class);
                  if (event.getCity().equals(your_city)) {
                      eventList.add(event);
-                     if(event.getHost().equals(email)){
-                         myList.add(event);
-                     }
+
+
 
 
                      sort = event.getCategory();
@@ -236,7 +235,7 @@ public class MainActivity extends AppCompatActivity{
                 hobbyAdapter.notifyDataSetChanged();
                 sportAdapter.notifyDataSetChanged();
                 travelAdapter.notifyDataSetChanged();
-                myAdapter.notifyDataSetChanged();
+
 
 
             }

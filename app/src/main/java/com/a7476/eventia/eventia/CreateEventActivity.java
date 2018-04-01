@@ -1,6 +1,7 @@
 package com.a7476.eventia.eventia;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.provider.AlarmClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -42,7 +43,7 @@ public class CreateEventActivity extends AppCompatActivity {
     //time picker
 
 
-    
+
 
 
 
@@ -142,6 +143,8 @@ public class CreateEventActivity extends AppCompatActivity {
 
         databaseEvent.child(id).setValue(event);
         Toast.makeText(this,"Event Created",Toast.LENGTH_LONG).show();
+        startActivity(new Intent(CreateEventActivity.this, MainActivity.class));
+        finish();
 
 
     }
