@@ -23,7 +23,7 @@ public class EventDetails extends AppCompatActivity {
         String email = user.getEmail();
 
         Event event = (Event) getIntent().getSerializableExtra("eventData");
-        Toast.makeText(this,event.getName(),Toast.LENGTH_LONG).show();
+    //    Toast.makeText(this,event.getName(),Toast.LENGTH_LONG).show();
 
         tw = (TextView) findViewById(R.id.name);
         tw.setText(event.getName());

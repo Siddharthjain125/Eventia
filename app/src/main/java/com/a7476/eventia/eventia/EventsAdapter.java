@@ -19,13 +19,14 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     private List<Event> eventsList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, year, genre;
+        public TextView title,category,venue,city;
 
         public MyViewHolder(View view) {
             super(view);
-            title = (TextView) view.findViewById(R.id.title);
-            genre = (TextView) view.findViewById(R.id.genre);
-            year = (TextView) view.findViewById(R.id.year);
+            title = (TextView) view.findViewById(R.id.item_title);
+            category = (TextView) view.findViewById(R.id.item_Categ);
+            venue = (TextView) view.findViewById(R.id.item_Venue);
+            city = (TextView) view.findViewById(R.id.item_City);
         }
     }
 
@@ -37,7 +38,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.event_list_row, parent, false);
+                .inflate(R.layout.card_layout, parent, false);
 
         return new MyViewHolder(itemView);
     }
@@ -46,8 +47,9 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.MyViewHold
     public void onBindViewHolder(MyViewHolder holder, int position) {
         Event event = eventsList.get(position);
         holder.title.setText(event.getName());
-        holder.genre.setText(event.getCategory());
-        holder.year.setText(event.getDate());
+        holder.category.setText(event.getCategory());
+        holder.venue.setText(event.getVenue());
+        holder.city.setText(event.getCity());
     }
 
     @Override

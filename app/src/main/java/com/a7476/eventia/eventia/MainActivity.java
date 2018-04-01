@@ -44,13 +44,13 @@ public class MainActivity extends AppCompatActivity{
     private List<Event> sportList = new ArrayList<>();
     private List<Event> travelList = new ArrayList<>();
     private List<Event> hobbyList = new ArrayList<>();
-
+    private List<Event> myList = new ArrayList<>();
 
     private String sort;
     private String your_city;
 
     private RecyclerView recyclerView;
-    private EventsAdapter mAdapter, techAdapter , sportAdapter , travelAdapter , hobbyAdapter;
+    private EventsAdapter mAdapter, techAdapter , sportAdapter , travelAdapter , hobbyAdapter,myAdapter;
 
 
     private DrawerLayout mDrawerLayout;
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity{
                     }
 
                     case R.id.nav_account: {
-                        startActivity(new Intent(MainActivity.this,MyEvent.class));
+                        recyclerView.setAdapter(myAdapter);
                         break;
                     }
 
@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity{
         sportAdapter = new EventsAdapter(sportList);
         hobbyAdapter = new EventsAdapter(hobbyList);
         travelAdapter = new EventsAdapter(travelList);
-
+        myAdapter = new EventsAdapter(myList);
 
 
 
@@ -198,16 +198,16 @@ public class MainActivity extends AppCompatActivity{
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                eventList.clear();
              for (DataSnapshot ds : dataSnapshot.getChildren()){
                  Event event = ds.getValue(Event.class);
+                 if(event.getHost().equals(email)){
+                     myList.add(event);
+                 }
                  if (event.getCity().equals(your_city)) {
+
                      eventList.add(event);
-
-
-
-
                      sort = event.getCategory();
-
                      switch (sort) {
                          case "Education and Tech": {
                              techList.add(event);
@@ -235,7 +235,7 @@ public class MainActivity extends AppCompatActivity{
                 hobbyAdapter.notifyDataSetChanged();
                 sportAdapter.notifyDataSetChanged();
                 travelAdapter.notifyDataSetChanged();
-
+                myAdapter.notifyDataSetChanged();
 
 
             }

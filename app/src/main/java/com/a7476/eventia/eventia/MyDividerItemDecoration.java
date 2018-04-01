@@ -17,10 +17,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.View;
 
-/**
- * Created by Ravi on 30/10/15.
- * updated by Ravi on 14/11/17
- */
 public class MyDividerItemDecoration extends RecyclerView.ItemDecoration {
 
     private static final int[] ATTRS = new int[]{

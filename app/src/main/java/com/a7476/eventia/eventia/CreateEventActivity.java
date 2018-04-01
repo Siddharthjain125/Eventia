@@ -146,6 +146,7 @@ public class CreateEventActivity extends AppCompatActivity {
         startActivity(new Intent(CreateEventActivity.this, MainActivity.class));
         finish();
 
-
+        Intent intent = new Intent(CreateEventActivity.this, MainActivity.class);
+        startActivity(intent);
     }
 }
