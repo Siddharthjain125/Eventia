@@ -24,7 +24,11 @@
         <activity android:name=".ResetPasswordActivity" />
         <activity android:name=".CreateEventActivity" />
         <activity android:name=".EventDetails" />
-        <activity android:name=".MyEvent"></activity>
+        <activity android:name=".MyEvent" />
+        <activity android:name=".Tech" />
+        <activity android:name=".Sports" />
+        <activity android:name=".Travel" />
+        <activity android:name=".Hobbies"></activity>
     </application>
 
 </manifest>

@@ -37,20 +37,17 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class MainActivity extends AppCompatActivity{
 
     private List<Event> eventList = new ArrayList<>();
-    private List<Event> techList = new ArrayList<>();
-    private List<Event> sportList = new ArrayList<>();
-    private List<Event> travelList = new ArrayList<>();
-    private List<Event> hobbyList = new ArrayList<>();
-    private List<Event> myList = new ArrayList<>();
+
 
     private String sort;
     private String your_city;
 
     private RecyclerView recyclerView;
-    private EventsAdapter mAdapter, techAdapter , sportAdapter , travelAdapter , hobbyAdapter,myAdapter;
+    private EventsAdapter mAdapter ;
 
 
     private DrawerLayout mDrawerLayout;
@@ -77,7 +74,7 @@ public class MainActivity extends AppCompatActivity{
 
         SharedPreferences prefs = getSharedPreferences("myprefs", Context.MODE_PRIVATE);
         your_city = prefs.getString("your_city",null);
-        Toast.makeText(this,your_city,Toast.LENGTH_LONG).show();
+
 
 
         // Drawer Layout
@@ -105,7 +102,8 @@ public class MainActivity extends AppCompatActivity{
                     }
 
                     case R.id.nav_account: {
-                        recyclerView.setAdapter(myAdapter);
+                        Intent intent = new Intent(MainActivity.this, MyEvent.class);
+                        startActivity(intent);
                         break;
                     }
 
@@ -115,23 +113,23 @@ public class MainActivity extends AppCompatActivity{
                     }
 
                     case R.id.Tech:{
-                        recyclerView.setAdapter(techAdapter);
+                        startActivity(new Intent(MainActivity.this,Tech.class));
                         break;
                     }
 
                     case R.id.Sports:{
-                        recyclerView.setAdapter(sportAdapter);
+                        startActivity(new Intent(MainActivity.this,Sports.class));
                         break;
                     }
 
                     case R.id.Travel:{
-                        recyclerView.setAdapter(travelAdapter);
+                        startActivity(new Intent(MainActivity.this,Travel.class));
                         break;
                     }
 
                     case R.id.Hobbies:{
 
-                        recyclerView.setAdapter(hobbyAdapter);
+                        startActivity(new Intent(MainActivity.this,Hobbies.class));
                         break;
                     }
                     case R.id.logout : {
@@ -159,11 +157,7 @@ public class MainActivity extends AppCompatActivity{
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
 
         mAdapter = new EventsAdapter(eventList);
-        techAdapter = new EventsAdapter(techList);
-        sportAdapter = new EventsAdapter(sportList);
-        hobbyAdapter = new EventsAdapter(hobbyList);
-        travelAdapter = new EventsAdapter(travelList);
-        myAdapter = new EventsAdapter(myList);
+
 
 
 
@@ -175,67 +169,21 @@ public class MainActivity extends AppCompatActivity{
 
         recyclerView.setAdapter(mAdapter);
 
+        myclicker();
 
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
-            @Override
-            public void onClick(View view, int position) {
-                Event event = eventList.get(position);
-                Toast.makeText(getApplicationContext(), event.getName() + " is selected!", Toast.LENGTH_SHORT).show();
-
-                // intent
-
-                Intent intent = new Intent(MainActivity.this, EventDetails.class);
-                intent.putExtra("eventData",event);
-                startActivity(intent);
-            }
-
-            @Override
-            public void onLongClick(View view, int position) {
-
-            }
-        }));
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(com.google.firebase.database.DataSnapshot dataSnapshot) {
                 eventList.clear();
-             for (DataSnapshot ds : dataSnapshot.getChildren()){
+             for (com.google.firebase.database.DataSnapshot ds : dataSnapshot.getChildren()){
                  Event event = ds.getValue(Event.class);
-                 if(event.getHost().equals(email)){
-                     myList.add(event);
-                 }
                  if (event.getCity().equals(your_city)) {
-
                      eventList.add(event);
-                     sort = event.getCategory();
-                     switch (sort) {
-                         case "Education and Tech": {
-                             techList.add(event);
-                         }
-                         break;
-                         case "Sports and Fitness": {
-                             sportList.add(event);
-                         }
-                         break;
-                         case "Travel and Adventure": {
-                             travelList.add(event);
-                         }
-                         break;
-                         case "Hobbies and Crafts": {
-                             hobbyList.add(event);
-                         }
-
-                     }
                  }
-
-
              }
                 mAdapter.notifyDataSetChanged();
-                techAdapter.notifyDataSetChanged();
-                hobbyAdapter.notifyDataSetChanged();
-                sportAdapter.notifyDataSetChanged();
-                travelAdapter.notifyDataSetChanged();
-                myAdapter.notifyDataSetChanged();
+
 
 
             }
@@ -257,5 +205,25 @@ public class MainActivity extends AppCompatActivity{
     }
 
     //click listener
+    void myclicker(){
+        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), recyclerView, new ClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Event event = eventList.get(position);
+                Toast.makeText(getApplicationContext(), event.getName() + " is selected!", Toast.LENGTH_SHORT).show();
+
+                // intent
+
+                Intent intent = new Intent(MainActivity.this, EventDetails.class);
+                intent.putExtra("eventData",event);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onLongClick(View view, int position) {
+
+            }
+        }));
+    }
 
 }
