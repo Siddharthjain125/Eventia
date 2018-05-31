@@ -9,11 +9,12 @@ import android.text.InputFilter;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 
 public class FirstActivity extends AppCompatActivity {
 
-    private EditText your_city;
+    private Spinner your_city;
     private Button insert_city;
     SharedPreferences sharedpreferences;
 
@@ -24,15 +25,15 @@ public class FirstActivity extends AppCompatActivity {
         setContentView(R.layout.activity_first);
 
         insert_city = (Button)findViewById(R.id.insert_city);
-        your_city = (EditText)findViewById(R.id.your_city);
-        your_city.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
+        your_city = (Spinner) findViewById(R.id.your_city);
+//        your_city.setFilters(new InputFilter[]{new InputFilter.AllCaps()});
 
 
 
         insert_city.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                String city = your_city.getText().toString().trim();
+                String city = your_city.getSelectedItem().toString().trim();
 
                 sharedpreferences = getSharedPreferences("myprefs", Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedpreferences.edit();

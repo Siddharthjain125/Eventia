@@ -37,7 +37,7 @@ public class CreateEventActivity extends AppCompatActivity {
 
 
     //date picker
-    int year , month,day;
+    int year ,month,day;
     Calendar myCalendar = Calendar.getInstance();
 
     //time picker

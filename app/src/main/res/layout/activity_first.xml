@@ -21,15 +21,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <EditText
-                    android:id="@+id/your_city"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:hint="Insert Your City"
-                    android:inputType="text"
-                    android:textColor="@android:color/white"
-                    android:textColorHint="@android:color/white" />
+        <Spinner
+            android:id="@+id/your_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:entries="@array/city"
+            android:textColor="@android:color/white"
+            android:popupBackground="@color/colorAccent"
+
+            />
             </android.support.design.widget.TextInputLayout>
 
             <Button

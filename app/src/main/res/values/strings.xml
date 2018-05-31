@@ -5,9 +5,11 @@
 
     <!-- Spinner Item-->
     <string-array name="city">
-        <item name="Indore">Indore</item>
-        <item name="Ujjain">Ujjain</item>
+        <item name="INDORE">INDORE</item>
+        <item name="BANGALORE">BANGALORE</item>
+        <item name="UJJAIN">UJJAIN</item>
     </string-array>
+
 
     <string-array name="category">
         <item name="edu">Education and Tech</item>
