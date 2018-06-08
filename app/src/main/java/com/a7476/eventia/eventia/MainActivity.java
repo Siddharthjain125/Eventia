@@ -183,14 +183,10 @@ public class MainActivity extends AppCompatActivity{
                  }
              }
                 mAdapter.notifyDataSetChanged();
-
-
-
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
     }

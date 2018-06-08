@@ -6,6 +6,7 @@ import android.provider.AlarmClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputFilter;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -56,10 +57,6 @@ public class CreateEventActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
-
-
-
-
 
 
         databaseEvent = FirebaseDatabase.getInstance().getReference("events");
@@ -137,16 +134,17 @@ public class CreateEventActivity extends AppCompatActivity {
         String city = event_city.getText().toString().trim();
 
 
+        if( TextUtils.isEmpty(name) || TextUtils.isEmpty(category) || TextUtils.isEmpty(date)|| TextUtils.isEmpty(time) || TextUtils.isEmpty(description) || TextUtils.isEmpty(venue) || TextUtils.isEmpty(city)) {
+            Toast.makeText(this, "Please enter all the fields", Toast.LENGTH_LONG).show();
+        }
+        else {
+            String id = databaseEvent.push().getKey();
+            Event event = new Event(id, name, category, date, time, description, venue, city, host);
 
-        String id = databaseEvent.push().getKey();
-        Event event = new Event(id,name,category,date,time,description,venue,city,host);
-
-        databaseEvent.child(id).setValue(event);
-        Toast.makeText(this,"Event Created",Toast.LENGTH_LONG).show();
-        startActivity(new Intent(CreateEventActivity.this, MainActivity.class));
-        finish();
-
-        Intent intent = new Intent(CreateEventActivity.this, MainActivity.class);
-        startActivity(intent);
+            databaseEvent.child(id).setValue(event);
+            Toast.makeText(this, "Event Created", Toast.LENGTH_LONG).show();
+            startActivity(new Intent(CreateEventActivity.this, MainActivity.class));
+            finish();
+        }
     }
 }
