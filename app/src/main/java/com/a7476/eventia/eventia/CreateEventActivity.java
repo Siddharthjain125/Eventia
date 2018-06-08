@@ -21,12 +21,14 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+
 import java.security.PublicKey;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
 public class CreateEventActivity extends AppCompatActivity {
+
 
     private EditText event_name,event_venue,event_city ;
     private Spinner event_category ;
@@ -134,8 +136,8 @@ public class CreateEventActivity extends AppCompatActivity {
         String city = event_city.getText().toString().trim();
 
 
-        if( TextUtils.isEmpty(name) || TextUtils.isEmpty(category) || TextUtils.isEmpty(date)|| TextUtils.isEmpty(time) || TextUtils.isEmpty(description) || TextUtils.isEmpty(venue) || TextUtils.isEmpty(city)) {
-            Toast.makeText(this, "Please enter all the fields", Toast.LENGTH_LONG).show();
+        if( TextUtils.isEmpty(name) || TextUtils.isEmpty(date)|| TextUtils.isEmpty(time) || TextUtils.isEmpty(description) || TextUtils.isEmpty(venue) || TextUtils.isEmpty(city)) {
+           Toast.makeText(this, "Please enter all the fields", Toast.LENGTH_LONG).show();
         }
         else {
             String id = databaseEvent.push().getKey();
