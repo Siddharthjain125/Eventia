@@ -40,7 +40,7 @@ public class Tech extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_event);
+        setContentView(R.layout.activity_tech);
 
 
         SharedPreferences prefs = getSharedPreferences("myprefs", Context.MODE_PRIVATE);
@@ -53,9 +53,6 @@ public class Tech extends AppCompatActivity {
         //retrieve user email
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         email = user.getEmail();
-
-
-        setContentView(R.layout.activity_main);
 
 
 

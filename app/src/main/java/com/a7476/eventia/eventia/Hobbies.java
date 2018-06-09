@@ -39,7 +39,7 @@ public class Hobbies extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_event);
+        setContentView(R.layout.activity_hobbies);
 
 
         myAdapter = new EventsAdapter(myList);
@@ -49,8 +49,6 @@ public class Hobbies extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         email = user.getEmail();
 
-
-        setContentView(R.layout.activity_main);
 
         SharedPreferences prefs = getSharedPreferences("myprefs", Context.MODE_PRIVATE);
         your_city = prefs.getString("your_city",null);

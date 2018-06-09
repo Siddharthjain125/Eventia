@@ -27,7 +27,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
-public class CreateEventActivity extends AppCompatActivity {
+public class UpdateEvent extends AppCompatActivity {
 
 
     private EditText event_name,event_venue,event_city ;
@@ -98,7 +98,7 @@ public class CreateEventActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                new DatePickerDialog(CreateEventActivity.this, date, myCalendar
+                new DatePickerDialog(UpdateEvent.this, date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
@@ -110,7 +110,7 @@ public class CreateEventActivity extends AppCompatActivity {
         create_btn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-             addEvent();
+                addEvent();
 
             }
         });
@@ -137,16 +137,16 @@ public class CreateEventActivity extends AppCompatActivity {
 
 
         if( TextUtils.isEmpty(name) || TextUtils.isEmpty(date)|| TextUtils.isEmpty(time) || TextUtils.isEmpty(description) || TextUtils.isEmpty(venue) || TextUtils.isEmpty(city)) {
-           Toast.makeText(this, "Please enter all the fields", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please enter all the fields", Toast.LENGTH_LONG).show();
         }
 //        else {
-            String id = databaseEvent.push().getKey();
-            Event event = new Event(id, name, category, date, time, description, venue, city, host);
+        String id = databaseEvent.push().getKey();
+        Event event = new Event(id, name, category, date, time, description, venue, city, host);
 
-            databaseEvent.child(id).setValue(event);
-            Toast.makeText(this, "Event Created", Toast.LENGTH_LONG).show();
-            startActivity(new Intent(CreateEventActivity.this, MainActivity.class));
-            finish();
+        databaseEvent.child(id).setValue(event);
+        Toast.makeText(this, "Event Created", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(UpdateEvent.this, MainActivity.class));
+        finish();
 //        }
     }
 }
